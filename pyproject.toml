@@ -13,6 +13,7 @@ matplotlib = "^3.9.0"
 jaxopt = "^0.8.3"
 scipy = "^1.13.1"
 jaxlib = "^0.4.30"
+optimistix = "^0.0.7"
 
 
 [tool.poetry.group.dev.dependencies]

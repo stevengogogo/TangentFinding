@@ -1,12 +1,16 @@
+#same as Rootfinding example 
+#https://pythonnumericalmethods.studentorg.berkeley.edu/notebooks/chapter19.05-Root-Finding-in-Python.html
 #%%
 import jax
-from jaxopt import Bisection
+import jax.numpy as jnp
+import optimistix as optx
+
+def fn(x, args):
+    return x**3-100*x**2-x+100
 
 
-f = jax.jit(lambda x: x**3-100*x**2-x+100)
-
-bisec = Bisection(optimality_fun=f, lower=2, upper=80)
-print(bisec.run().params)
-
-
+solver = optx.Newton(rtol=1e-8, atol=1e-8)
+y0 = jnp.array([2., 80.])
+sol = optx.root_find(fn, solver, y0)
+print(sol.value)
 # %%
